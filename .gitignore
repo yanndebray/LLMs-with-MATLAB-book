@@ -3,4 +3,4 @@ archives/
 env/
 llms-with-matlab/
 *.asv
-chatGTP_exports/
+chatGPT_exports/
