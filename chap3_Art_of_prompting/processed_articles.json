@@ -1,0 +1,22 @@
+"[
+  {
+    ""title"": ""We’ve been listening: MATLAB R2025a Prerelease update 5 now available » The MATLAB Blog - MATLAB & Simulink"",
+    ""category"": ""Category: New Releases"",
+    ""summary"": ""The article announces Update 5 for the R2025a Prerelease of MATLAB, which follows its initial public release in January 2025. It highlights improvements in the update cycle for faster feedback responses and allows open discussions on MATLAB Central without a non-disclosure agreement. Key features include the introduction of Dark Mode and enhanced performance for linear algebra operations on Apple Silicon. A new Feedback button has been added to streamline user input. Users are encouraged to test the latest version and provide feedback, which is vital for shaping the final release.""
+  },
+  {
+    ""title"": ""How to run local DeepSeek models and use them with MATLAB » The MATLAB Blog - MATLAB & Simulink"",
+    ""category"": ""Category: artificial intelligence (AI)"",
+    ""summary"": ""The article by Mike Croucher serves as a guide for utilizing the DeepSeek-R1 AI models, particularly the smaller deepseek-r1:1.5b, within MATLAB. It details the installation process, which requires downloading the Ollama software and using MATLAB R2024b's Add-on Explorer to install the \""Large Language Models\"" add-on. Once set up, users can create an `ollamaChat` object to interact with the model and generate responses to various queries. The author notes the model's ability to provide diverse and contextually relevant answers, highlighting its effectiveness despite being a smaller version. The article encourages readers to explore and engage with LLM-based AI technology.""
+  },
+  {
+    ""title"": ""4 ways of using MATLAB with Large Language Models (LLMs) such as ChatGPT and Ollama » The MATLAB Blog - MATLAB & Simulink"",
+    ""category"": ""Category: artificial intelligence (AI)"",
+    ""summary"": ""The article outlines four key advancements in integrating Large Language Models (LLMs) like ChatGPT within the MATLAB environment. It introduces the MATLAB AI Chat Playground, launched in 2023, which features the upgraded GPT-4o mini for interactive coding. Users can also connect MATLAB to various APIs, enhancing natural language processing capabilities, as demonstrated by Toshi Takeuchi's MatGPT project. Furthermore, the MATLAB extension for Visual Studio Code improves coding efficiency through GitHub Copilot integration. Lastly, a custom MATLAB GPT in the OpenAI GPT Store is designed for MATLAB users, utilizing Retrieval Augmented Generation to enhance response accuracy.""
+  },
+  {
+    ""title"": ""MATLAB now has over 1,000 functions that Just Work on NVIDIA GPUs » The MATLAB Blog - MATLAB & Simulink"",
+    ""category"": ""Category: High Performance Computing"",
+    ""summary"": ""The article outlines the development of GPU support in MATLAB, which started with 123 functions in R2010b and has grown to 1,195 functions by R2024b, showcasing MATLAB's dedication to harnessing GPU technology for improved performance. A case study from NASA demonstrates the potential for substantial speed enhancements, achieving a 40x speedup with minimal changes to their algorithm. The article explains the support for `gpuArray`, indicating that while many functions work well with it, some have limitations due to performance trade-offs. It also marks the achievement of the 1000th function, `pagemldivide`, and mentions additional GPU features like `arrayfun` and GPU Coder. The article concludes by inviting user suggestions for further expanding GPU-supported functions.""
+  }
+]"
