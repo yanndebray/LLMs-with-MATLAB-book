@@ -1,32 +1,39 @@
 # Comment exécuter des modèles DeepSeek locaux et les utiliser avec MATLAB
 
-Presque immédiatement après la sortie des modèles d'IA DeepSeek-R1, les utilisateurs ont commencé à se renseigner sur leur intégration avec MATLAB. Récemment, Vasileios Papanastasiou, ingénieur en test logiciel chez MathWorks, a partagé des instructions sur LinkedIn, que j'ai décidé d'essayer sur ma propre machine.
+**Publié par Mike Croucher, le 4 février 2025**
 
-## Exécution de DeepSeek-R1:1.5B sur ma machine locale
+**Vues :** 1079 (derniers 30 jours) | **J'aime :** 0 | **Commentaires :** 15
 
-J'ai utilisé l'extension "Large Language Models (LLMS) with MATLAB" ainsi qu'Ollama pour exécuter l'un des modèles DeepSeek plus petits localement et interagir avec lui dans MATLAB. Suivant les conseils de Vasileios, j'ai d'abord :
+---
 
-1. **Télécharger et installer Ollama** : [Téléchargement d'Ollama](https://ollama.com/download) (j'ai fait cela sur Windows).
-2. Après l'installation, j'ai ouvert une ligne de commande et exécuté la commande :
-   ```
-   ollama run deepseek-r1:1.5b
-   ```
-   Cette commande installe un modèle de 1,5 milliard de paramètres, qui est relativement petit, ce qui atténue les préoccupations concernant les contraintes de ressources informatiques. Des modèles plus grands peuvent être explorés plus tard.
+Après la sortie des modèles d'IA DeepSeek-R1, de nombreux utilisateurs ont été impatients d'apprendre comment les intégrer avec MATLAB. Récemment, Vasileios Papanastasiou, ingénieur de test logiciel chez MathWorks, a partagé un guide sur LinkedIn, que j'ai décidé d'essayer sur ma propre machine.
 
-Ensuite, je me suis tourné vers MATLAB. Bien que Vasileios ait suggéré d'obtenir l'extension "Large Language Models (LLMS) with MATLAB" depuis GitHub, j'ai opté pour une méthode différente :
+## Exécution de deepseek-r1:1.5b sur ma machine locale
 
-1. J'ai cliqué sur **Add-ons** dans l'onglet Environnement de MATLAB R2024b.
-2. Dans l'Explorateur d'extensions, j'ai recherché "Large Language Models" et cliqué sur "Ajouter" pour compléter le téléchargement et l'installation.
+Pour exécuter l'un des modèles DeepSeek plus petits localement et interagir avec lui dans MATLAB, j'ai utilisé l'extension "Large Language Models (LLMS) with MATLAB" ainsi qu'Ollama. Voici comment je l'ai configuré :
 
-## Interagir avec le modèle dans MATLAB
+1. **Télécharger et installer Ollama** : 
+   - Visitez la [page de téléchargement d'Ollama](https://ollama.com/download) et installez-le sur votre machine Windows.
 
-Avec l'installation terminée, j'étais prêt à expérimenter dans MATLAB. J'ai créé un objet `ollamaChat` :
+2. **Exécuter le modèle** : 
+   - Après l'installation, ouvrez la ligne de commande et exécutez la commande :
+     ```
+     ollama run deepseek-r1:1.5b
+     ```
+   - Cette commande installe un modèle de 1,5 milliard de paramètres, qui est gérable en termes de ressources informatiques.
+
+3. **Configurer MATLAB** : 
+   - Au lieu de suivre le chemin GitHub de Vasileios, j'ai choisi d'utiliser MATLAB R2024b. J'ai cliqué sur **Add-ons** dans l'onglet Environnement, recherché "Large Language Models" et cliqué sur **Add** pour l'installer.
+
+### Interagir avec le modèle dans MATLAB
+
+Maintenant que l'installation est terminée, j'ai créé un objet `ollamaChat` dans MATLAB :
 
 ```matlab
 chat = ollamaChat("deepseek-r1:1.5b")
 ```
 
-Cela a renvoyé les propriétés suivantes :
+Cette commande initialise l'objet de chat avec les propriétés suivantes :
 
 - **ModelName** : "deepseek-r1:1.5b"
 - **Endpoint** : "127.0.0.1:11434"
@@ -40,30 +47,30 @@ Cela a renvoyé les propriétés suivantes :
 - **SystemPrompt** : []
 - **ResponseFormat** : "text"
 
-Maintenant, je pouvais commencer à interagir avec l'IA. Par exemple, j'ai demandé :
+### Génération de réponses
+
+J'ai commencé à interagir avec l'IA en posant des questions. Par exemple :
 
 ```matlab
 txt = generate(chat, "Quelle est la vitesse de la lumière ?")
 ```
 
-La réponse était :
+L'IA a répondu avec :
 
 ```
 <think>
 </think>
 La valeur exacte de la vitesse de la lumière dans le vide est définie comme \( 299,792,458 \) mètres par seconde.
-Cette définition précise garantit la cohérence et l'exactitude dans toutes les mesures et calculs scientifiques.
 ```
 
-Un aspect intéressant des LLM est leur nature stochastique ; poser la même question plusieurs fois peut donner des réponses différentes. Par exemple :
+J'ai trouvé intéressant que les réponses du modèle variaient à chaque requête. Voici quelques exemples :
 
 1. **Première réponse** :
    ```
    La vitesse de la lumière dans le vide est d'environ 299,792 kilomètres (186,282 miles statutaires) par seconde.
-   La lumière est la chose la plus rapide de l'univers avec sa limite de vitesse universelle.
    ```
 
-2. **Deuxième réponse** (plus verbeuse) :
+2. **Deuxième réponse** (plus détaillée) :
    ```
    <think>
    D'accord, j'essaie de comprendre quelle est la vitesse de la lumière...
@@ -72,8 +79,10 @@ Un aspect intéressant des LLM est leur nature stochastique ; poser la même que
    </think>
    ```
 
-Bien que le modèle puisse produire des réponses longues et parfois alambiquées, il identifie systématiquement la vitesse de la lumière comme **299,792,458 mètres par seconde**, ce qui est exact selon des sources fiables.
+### Conclusion
 
-## Conclusion
+Bien que le modèle DeepSeek que j'ai utilisé soit relativement petit, il fournit néanmoins des informations précieuses et démontre les capacités et les limites de la technologie IA basée sur les LLM. Je vous encourage à expérimenter avec et à partager vos réflexions !
 
-Bien qu'il s'agisse d'une version plus petite du modèle DeepSeek, il démontre néanmoins des capacités utiles et constitue un moyen engageant d'explorer les forces et les faiblesses de la technologie IA basée sur les LLM. Je vous encourage à l'essayer et à partager vos réflexions !
+---
+
+**Catégorie** : Intelligence Artificielle (IA)

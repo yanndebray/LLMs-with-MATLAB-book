@@ -13,9 +13,9 @@ function translation = translate_article(content, language)
     if nargin < 2
         language = "English";
     end
-    prompt = [...
-        "Translate the following article to " + language ...
-        content ...
+    prompt = [
+        "Translate the following article to " + language ;
+        content ;
         "Translation:"];
     prompt = strjoin(prompt, newline);
     translation = bot(prompt);
