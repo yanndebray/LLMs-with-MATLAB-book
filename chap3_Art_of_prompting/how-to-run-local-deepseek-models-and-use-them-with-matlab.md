@@ -6,11 +6,11 @@
 
 ---
 
-After the release of the DeepSeek-R1 AI models, many users have been eager to learn how to integrate them with MATLAB. Recently, Vasileios Papanastasiou, a software test engineer at MathWorks, shared a guide on LinkedIn, which I decided to try on my own machine.
+After the release of the DeepSeek-R1 AI models, many users have inquired about how to utilize them in MATLAB. Recently, Vasileios Papanastasiou, a software test engineer at MathWorks, shared a guide on LinkedIn, which I followed to run the model on my local machine.
 
 ## Running deepseek-r1:1.5b on My Local Machine
 
-To run one of the smaller DeepSeek models locally and interact with it in MATLAB, I utilized the "Large Language Models (LLMS) with MATLAB" add-on along with Ollama. Here’s how I set it up:
+To get started, I used the "Large Language Models (LLMS) with MATLAB" add-on along with Ollama to run one of the smaller DeepSeek models. Here’s how I did it:
 
 1. **Download and Install Ollama**: 
    - Visit [Ollama's download page](https://ollama.com/download) and install it on your Windows machine.
@@ -23,7 +23,7 @@ To run one of the smaller DeepSeek models locally and interact with it in MATLAB
    - This command installs a 1.5 billion parameter model, which is manageable in terms of computational resources.
 
 3. **Set Up MATLAB**: 
-   - Instead of following Vasileios's GitHub route, I opted to use MATLAB R2024b. I clicked on **Add-ons** in the Environment tab, searched for "Large Language Models," and clicked **Add** to install it.
+   - Instead of following Vasileios's GitHub route, I opted to use MATLAB R2024b. I clicked on **Add-ons** in the Environment tab, searched for 'Large Language Models', and clicked on 'Add' to install it.
 
 ### Interacting with the Model in MATLAB
 
@@ -49,13 +49,13 @@ This command initializes the chat object with the following properties:
 
 ### Generating Responses
 
-I began interacting with the AI by asking questions. For example:
+I tested the model by asking it a question:
 
 ```matlab
 txt = generate(chat, "What is the speed of light?")
 ```
 
-The AI responded with:
+The response was:
 
 ```
 <think>
@@ -63,26 +63,30 @@ The AI responded with:
 The exact value of the speed of light in a vacuum is defined as \( 299,792,458 \) meters per second.
 ```
 
-I found it interesting that the model's responses varied with each query. Here are a few examples:
+I found it interesting that the model's responses varied with each query. For example:
 
-1. **First Response**:
+1. **First Query**:
    ```
    The speed of light in a vacuum is approximately 299,792 kilometers (186,282 statute miles) per second.
    ```
 
-2. **Second Response** (more verbose):
+2. **Second Query**:
    ```
    <think>
    Okay, so I'm trying to figure out what the speed of light is...
    ...
-   In summary, the speed of light remains a constant, significantly impacting various areas of physics and our understanding of the universe.
+   The speed of light is approximately three times 10^8 meters per second but precisely calculated to around 299,792,458 m/s.
    </think>
    ```
 
+The model provided a detailed explanation, showcasing its ability to generate varied and complex responses.
+
 ### Conclusion
 
-While the DeepSeek model I used is relatively small, it still provides valuable insights and demonstrates the capabilities and limitations of LLM-based AI technology. I encourage you to experiment with it and share your thoughts!
+While this is a smaller version of the DeepSeek model, it still demonstrates useful capabilities and serves as an engaging way to explore the strengths and weaknesses of LLM-based AI technology. I encourage you to try it out and share your thoughts!
 
 ---
+
+You are now following this blog post and will receive updates in your activity feed. You may also receive emails based on your notification preferences.
 
 **Category**: Artificial Intelligence (AI)

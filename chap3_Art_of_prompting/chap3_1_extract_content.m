@@ -1,10 +1,11 @@
 %% Extracting Content from a URL
+addpath("utils");
 
 url = "https://blogs.mathworks.com/matlab/2025/02/04/how-to-run-local-deepseek-models-and-use-them-with-matlab";
 % This function extracts the title and content from a given URL.
-[title, content] = extract_content(url);
+[title, content] = extractContent(url);
 % Format the content using a custom function
-formatted_content = format_content(title, content)
+formatted_content = formatContent(title, content)
 
 % Extract the last part of the URL as filename
 urlParts = strsplit(url, '/');
@@ -15,46 +16,3 @@ outputFile = filename + ".md";
 fid = fopen(outputFile, 'w');
 fprintf(fid, '%s', formatted_content);
 fclose(fid);
-
-
-function [title, content] = extract_content(url)
-    try
-        % Make a web call with a custom timeout of 30 seconds
-        options = weboptions('Timeout', 30);
-        html = webread(url,options);
-        tree = htmlTree(html);
-        
-        % Get the title element text
-        t = findElement(tree, 'title');
-        if ~isempty(t)
-            title = extractHTMLText(t.Children);
-        else
-            title = "No Title Found";
-        end
-        % Extract body from the HTML tree
-        body = findElement(tree, 'body');
-        if ~isempty(body)
-            content = extractHTMLText(body);
-        else
-            error("No body found in the HTML.");
-        end
-        
-    catch ME
-        fprintf("Error fetching %s: %s\n", url, ME.message);
-        title = "";
-        content = "";
-    end
-end
-
-function formatted_content = format_content(title, content)
-        prompt = [
-        "You are an expert text formatter and summarizer." ;
-        "Here is an article:" ;
-        "Title: " + title ;
-        "Content:" ;
-        content ;
-        "Please format this scraped text into a clean, readable content."];
-        prompt = strjoin(prompt, newline);
-    % Call the bot function with the constructed prompt
-    formatted_content = bot(prompt);
-end
