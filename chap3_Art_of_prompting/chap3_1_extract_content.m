@@ -13,7 +13,7 @@ outputFile = filename + ".md";
 
 % Write title and content to the file
 fid = fopen(outputFile, 'w');
-fprintf(fid, formatted_content);
+fprintf(fid, '%s', formatted_content);
 fclose(fid);
 
 

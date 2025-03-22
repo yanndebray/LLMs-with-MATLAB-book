@@ -1,39 +1,32 @@
 # How to Run Local DeepSeek Models and Use Them with MATLAB
 
-**Posted by Mike Croucher, February 4, 2025**
+Almost immediately after the DeepSeek-R1 AI models were released, users began inquiring about their integration with MATLAB. Recently, Vasileios Papanastasiou, a software test engineer at MathWorks, shared instructions on LinkedIn, which I decided to try on my own machine.
 
-**Views:** 1079 (last 30 days) | **Likes:** 0 | **Comments:** 15
+## Running DeepSeek-R1:1.5B on My Local Machine
 
----
+I utilized the "Large Language Models (LLMS) with MATLAB" add-on along with Ollama to run one of the smaller DeepSeek models locally and interact with it in MATLAB. Following Vasileios's guidance, I first:
 
-After the release of the DeepSeek-R1 AI models, many users have been eager to learn how to integrate them with MATLAB. Recently, Vasileios Papanastasiou, a software test engineer at MathWorks, shared a guide on LinkedIn, which I decided to try on my own machine.
+1. **Download and Install Ollama**: [Ollama Download](https://ollama.com/download) (I did this on Windows).
+2. After installation, I opened a command line and executed the command:
+   ```
+   ollama run deepseek-r1:1.5b
+   ```
+   This command installs a 1.5 billion parameter model, which is relatively small, alleviating concerns about computational resource constraints. Larger models can be explored later.
 
-## Running deepseek-r1:1.5b on My Local Machine
+Next, I turned to MATLAB. While Vasileios suggested obtaining the "Large Language Models (LLMS) with MATLAB" add-on from GitHub, I opted for a different method:
 
-To run one of the smaller DeepSeek models locally and interact with it in MATLAB, I utilized the "Large Language Models (LLMS) with MATLAB" add-on along with Ollama. Here’s how I set it up:
+1. I clicked on **Add-ons** in the Environment tab of MATLAB R2024b.
+2. In the Add-on Explorer, I searched for "Large Language Models" and clicked on "Add" to complete the download and installation.
 
-1. **Download and Install Ollama**: 
-   - Visit [Ollama's download page](https://ollama.com/download) and install it on your Windows machine.
+## Interacting with the Model in MATLAB
 
-2. **Run the Model**: 
-   - After installation, open the command line and execute the command:
-     ```
-     ollama run deepseek-r1:1.5b
-     ```
-   - This command installs a 1.5 billion parameter model, which is manageable in terms of computational resources.
-
-3. **Set Up MATLAB**: 
-   - Instead of following Vasileios's GitHub suggestion, I opted to use MATLAB R2024b's Add-on Explorer. I clicked on **Add-ons** in the Environment tab, searched for "Large Language Models," and clicked **Add** to install it.
-
-### Interacting with the Model in MATLAB
-
-Now that the installation is complete, I created an `ollamaChat` object in MATLAB:
+With the installation complete, I was ready to experiment in MATLAB. I created an `ollamaChat` object:
 
 ```matlab
 chat = ollamaChat("deepseek-r1:1.5b")
 ```
 
-This command initializes the chat object with the following properties:
+This returned the following properties:
 
 - **ModelName**: "deepseek-r1:1.5b"
 - **Endpoint**: "127.0.0.1:11434"
@@ -47,44 +40,40 @@ This command initializes the chat object with the following properties:
 - **SystemPrompt**: []
 - **ResponseFormat**: "text"
 
-### Generating Responses
-
-I began interacting with the AI by asking questions. For example:
+Now, I could start interacting with the AI. For example, I asked:
 
 ```matlab
 txt = generate(chat, "What is the speed of light?")
 ```
 
-The AI responded with:
+The response was:
 
 ```
 <think>
 </think>
 The exact value of the speed of light in a vacuum is defined as \( 299,792,458 \) meters per second.
+This precise definition ensures consistency and accuracy across all scientific measurements and calculations.
 ```
 
-I found it interesting that the model's responses varied with each query. Here are a few examples:
+One interesting aspect of LLMs is their stochastic nature; asking the same question multiple times can yield different answers. For instance:
 
 1. **First Response**:
    ```
    The speed of light in a vacuum is approximately 299,792 kilometers (186,282 statute miles) per second.
+   Light is the fastest thing in the universe with its universal speed limit.
    ```
 
-2. **Second Response**:
+2. **Second Response** (more verbose):
    ```
    <think>
    Okay, so I'm trying to figure out what the speed of light is...
    ...
-   The speed of light is approximately three times 10^8 meters per second but precisely calculated to around 299,792,458 m/s.
+   In summary, the speed of light remains a constant, significantly impacting various areas of physics and our understanding of the universe.
    </think>
    ```
 
-The model's responses can range from concise to elaborate, showcasing the stochastic nature of LLMs.
+While the model can produce lengthy and sometimes convoluted responses, it consistently identifies the speed of light as **299,792,458 meters per second**, which is accurate according to reliable sources.
 
-### Conclusion
+## Conclusion
 
-Despite being a smaller version of the DeepSeek model, it still provides valuable insights and serves as an engaging way to explore the capabilities and limitations of LLM-based AI technology. I encourage you to experiment with it and share your thoughts!
-
----
-
-**Category**: Artificial Intelligence (AI)
+Despite being a smaller version of the DeepSeek model, it still demonstrates useful capabilities and serves as an engaging way to explore the strengths and weaknesses of LLM-based AI technology. I encourage you to try it out and share your thoughts!
