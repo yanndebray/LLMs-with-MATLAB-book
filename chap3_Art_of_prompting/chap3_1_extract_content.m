@@ -2,17 +2,18 @@
 
 url = "https://blogs.mathworks.com/matlab/2025/02/04/how-to-run-local-deepseek-models-and-use-them-with-matlab";
 % This function extracts the title and content from a given URL.
-[title, content] = extract_content(url)
+[title, content] = extract_content(url);
+% Format the content using a custom function
+formatted_content = format_content(title, content)
 
 % Extract the last part of the URL as filename
 urlParts = strsplit(url, '/');
 filename = urlParts{end};
-outputFile = filename + ".txt";
+outputFile = filename + ".md";
 
 % Write title and content to the file
 fid = fopen(outputFile, 'w');
-fprintf(fid, "Title: %s\n\n", title);
-fprintf(fid, "Content:\n%s", formatted_content);
+fprintf(fid, formatted_content);
 fclose(fid);
 
 
@@ -43,4 +44,17 @@ function [title, content] = extract_content(url)
         title = "";
         content = "";
     end
+end
+
+function formatted_content = format_content(title, content)
+        prompt = [...
+        "You are an expert text formatter and summarizer." ...
+        "Here is an article:" ...
+        "Title: " + title ...
+        "Content:" ...
+        content ...
+        "Please format this scraped text into a clean, readable content."];
+        prompt = strjoin(prompt, newline);
+    % Call the bot function with the constructed prompt
+    formatted_content = bot(prompt);
 end
