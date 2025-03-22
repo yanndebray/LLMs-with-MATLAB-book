@@ -4,6 +4,17 @@ url = "https://blogs.mathworks.com/matlab/2025/02/04/how-to-run-local-deepseek-m
 % This function extracts the title and content from a given URL.
 [title, content] = extract_content(url)
 
+% Extract the last part of the URL as filename
+urlParts = strsplit(url, '/');
+filename = urlParts{end};
+outputFile = filename + ".txt";
+
+% Write title and content to the file
+fid = fopen(outputFile, 'w');
+fprintf(fid, "Title: %s\n\n", title);
+fprintf(fid, "Content:\n%s", formatted_content);
+fclose(fid);
+
 
 function [title, content] = extract_content(url)
     try
