@@ -5,9 +5,6 @@ bookmarks = ["https://blogs.mathworks.com/matlab/2025/03/20/weve-been-listening-
         "https://blogs.mathworks.com/matlab/2024/10/02/4-ways-of-using-matlab-with-large-language-models-llms-such-as-chatgpt-and-ollama";
         "https://blogs.mathworks.com/matlab/2024/09/26/matlab-now-has-over-1000-functions-that-just-work-on-nvidia-gpus"];
 
-% Process bookmarks
-% processedArticles = processBookmarks(bookmarks);
-
 processedArticles = struct('title', {}, 'category', {}, 'summary', {});
 for i = 1:numel(bookmarks)
     % Extract current bookmark info
@@ -25,7 +22,7 @@ for i = 1:numel(bookmarks)
     articleData.summary  = summary
 
     % Append to the results array
-    processedArticles(end+1) = articleData; %#ok<AGROW>
+    processedArticles(end+1) = articleData; 
 end
 % Save the processed articles to a JSON file
 jason = jsonencode(processedArticles, PrettyPrint=true);

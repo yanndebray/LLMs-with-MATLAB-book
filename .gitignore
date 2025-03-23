@@ -4,3 +4,4 @@ env/
 llms-with-matlab/
 *.asv
 chatGPT_exports/
+__pycache__/
