@@ -1,6 +1,4 @@
 
-<a id="TMP_6afa"></a>
-
 # AI agents with MATLAB and Python
 
 Learn AI agents using MATLAB and Python
@@ -17,38 +15,28 @@ The code can be executed in MATLAB Online and MATLAB Desktop.
 
 Some parts leverage other dev environments like VSCode and Jupyter. 
 
-<!-- Begin Toc -->
+<a name="beginToc"></a>
 
 ## Table of Contents
-&emsp;&emsp;[Setup](#TMP_8b14)
+&emsp;&emsp;[Preface](#preface)
  
-&emsp;&emsp;[Chap 1 \- LLMs with MATLAB and Python](#TMP_97ba)
+&emsp;&emsp;[Chap 1 \- LLMs with MATLAB and Python](#chap-1-llms-with-matlab-and-python)
  
-&emsp;&emsp;[Chap 2 \- Build your own MatGPT](#TMP_6b40)
+&emsp;&emsp;[Chap 2 \- Build your own MatGPT](#chap-2-build-your-own-matgpt)
  
-&emsp;&emsp;[Utils](#TMP_26e3)
+&emsp;&emsp;[Chap 3 \- the Art of Prompting](#chap-3-the-art-of-prompting)
  
-<!-- End Toc -->
-<a id="TMP_8b14"></a>
+&emsp;&emsp;[Utils](#utils)
+ 
+<a name="endToc"></a>
 
-## Setup
-```matlab
-folderName = 'llms-with-matlab';
-if ~isfolder(folderName)
-    gitclone("https://github.com/matlab-deep-learning/llms-with-matlab");
-else
-    disp('The folder already exists.');
-end
-```
+## Preface
 
-```matlabTextOutput
-The folder already exists.
-```
+Setup your environment with dependencies and API keys
 
 ```matlab
-addpath(genpath("llms-with-matlab\"))
+edit preface/setup.mlx
 ```
-<a id="TMP_97ba"></a>
 
 ## Chap 1 \- LLMs with MATLAB and Python
 
@@ -67,7 +55,6 @@ Learn to manage messages history
 ```matlab
 edit chap1_LLMs_with_MATLAB_and_Python\chap1_messages_history.mlx
 ```
-<a id="TMP_6b40"></a>
 
 ## Chap 2 \- Build your own MatGPT
 
@@ -76,10 +63,16 @@ edit chap1_LLMs_with_MATLAB_and_Python\chap1_messages_history.mlx
 
 ![image_0.png](README_media/image_0.png)
 
-
-<a id="TMP_26e3"></a>
+## Chap 3 \- the Art of Prompting
+```matlab
+edit chap3_1_extract_content.m
+edit chap3_2_translate_articles.m
+edit chap3_3_classify_articles.m
+edit chap3_4_summarize_articles.m
+edit chap3_5_scale_processing.m
+```
 
 ## Utils
 ```matlab
-export README.mlx README.md
+export README.mlx README.md;
 ```
