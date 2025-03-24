@@ -11,9 +11,13 @@
  
 &emsp;&emsp;[Plotting embeddings](#plotting-embeddings)
  
+&emsp;&emsp;[Vector Search](#vector-search)
+ 
 &emsp;&emsp;[Utils](#utils)
  
 <a name="endToc"></a>
+
+Resource: [A Tale of Two Cities by Charles Dickens | Project Gutenberg](https://www.gutenberg.org/ebooks/98)
 
 ```matlab
 % Define the paragraph as a string literal using concatenation for readability
@@ -200,6 +204,82 @@ ans =
 
     Use string, double or cell function to convert to a MATLAB array.
 
+```
+
+## Vector Search
+
+Let's use Facebook AI Similarity Search (FAISS)
+
+```matlab
+d = py.int(384); % Dimension of the embeddings
+index = py.faiss.IndexFlatL2(d);
+index.add(embeddings)
+```
+
+```matlab
+% Save the index to a file
+py.faiss.write_index(index, "charles.index");
+```
+
+```matlab
+% Later, load the index from the file
+index = py.faiss.read_index("charles.index");
+```
+
+```matlab
+% Encode the sentence "good times"
+query_sentence = "good times";
+query_embedding = model.encode(query_sentence);
+
+% Convert query_embedding to a numpy array and reshape to [1, 384]
+query_embedding = py.numpy.reshape(query_embedding, py.tuple({py.int(1), d}));
+
+k = py.int(5);  % Number of nearest neighbors to retrieve
+res = index.search(query_embedding, k);
+distance = double(res{1})
+```
+
+```matlabTextOutput
+distance = 1x5
+    0.6443    0.8688    1.4093    1.4115    1.4285
+
+```
+
+```matlab
+indices = int64(res{2})
+```
+
+```matlabTextOutput
+indices = 1x5 int64 row vector
+    0    1   10    8   16
+
+```
+
+```matlab
+disp("Nearest neighbors (smaller is better):")
+```
+
+```matlabTextOutput
+Nearest neighbors (smaller is better):
+```
+
+```matlab
+% Loop over the number of neighbors returned.
+% Note: FAISS returns 0-indexed indices, so add 1 for MATLAB indexing.
+for i = 1:size(indices, 2)
+    idx = indices(1, i) + 1;  
+    % Use either sentences{idx} (if sentences is a cell array)
+    % or sentences(idx) (if sentences is a string array)
+    fprintf("Sentence: %s, Distance: %f\n", sentences{idx}, distance(1, i));
+end
+```
+
+```matlabTextOutput
+Sentence: It was the best of times, Distance: 0.644261
+Sentence: it was the worst of times, Distance: 0.868798
+Sentence: we had everything before us, Distance: 1.409303
+Sentence: it was the spring of hope, Distance: 1.411456
+Sentence: for good or for evil, Distance: 1.428535
 ```
 
 ## Utils

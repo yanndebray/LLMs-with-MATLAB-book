@@ -3,3 +3,4 @@ openai
 youtube-transcript-api
 tiktoken
 sentence-transformers
+faiss-cpu
