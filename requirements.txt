@@ -2,3 +2,4 @@ python-dotenv
 openai
 youtube-transcript-api
 tiktoken
+sentence-transformers
