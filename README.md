@@ -30,6 +30,8 @@ Some parts leverage other dev environments like VSCode and Jupyter.
  
 &emsp;&emsp;[Chap 4 \- Question Answering](#TMP_4603)
  
+&emsp;&emsp;[Chap 5 \- Agents and Tools](#TMP_7564)
+ 
 &emsp;&emsp;[Utils](#TMP_26e3)
  
 <!-- End Toc -->
@@ -40,7 +42,7 @@ Some parts leverage other dev environments like VSCode and Jupyter.
 Setup your environment with dependencies and API keys
 
 ```matlab
-edit preface/setup.mlx
+edit preface\setup.mlx
 ```
 <a id="TMP_97ba"></a>
 
@@ -86,6 +88,12 @@ edit chap3_Art_of_prompting\chap3_5_scale_processing.m
 ```matlab
 edit chap4_Question_answering\chap4_rag.mlx
 edit chap4_Question_answering\chap4_embeddings.mlx
+```
+<a id="TMP_7564"></a>
+
+## Chap 5 \- Agents and Tools
+```matlab
+edit chap5_Agents\chap5_OpenAI_functions.mlx
 ```
 <a id="TMP_26e3"></a>
 
