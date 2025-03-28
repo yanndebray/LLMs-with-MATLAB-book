@@ -4,3 +4,4 @@ youtube-transcript-api
 tiktoken
 sentence-transformers
 faiss-cpu
+duckduckgo-search
