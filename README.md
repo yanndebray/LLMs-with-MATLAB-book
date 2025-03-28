@@ -75,6 +75,9 @@ edit chap1_LLMs_with_MATLAB_and_Python\chap1_messages_history.mlx
 <a id="H_4c6c"></a>
 
 ## Chap 3 \- the Art of Prompting
+
+![image_1.png](README_media/image_1.png)
+
 ```matlab
 edit chap3_Art_of_prompting\chap3_1_extract_content.m
 edit chap3_Art_of_prompting\chap3_2_translate_articles.m
@@ -85,6 +88,9 @@ edit chap3_Art_of_prompting\chap3_5_scale_processing.m
 <a id="TMP_4603"></a>
 
 ## Chap 4 \- Question Answering
+
+![image_2.png](README_media/image_2.png)
+
 ```matlab
 edit chap4_Question_answering\chap4_rag.mlx
 edit chap4_Question_answering\chap4_embeddings.mlx
@@ -92,6 +98,9 @@ edit chap4_Question_answering\chap4_embeddings.mlx
 <a id="TMP_7564"></a>
 
 ## Chap 5 \- Agents and Tools
+
+![image_3.png](README_media/image_3.png)
+
 ```matlab
 edit chap5_Agents\chap5_OpenAI_functions.mlx
 ```
