@@ -6,6 +6,9 @@
 Learn AI agents using MATLAB and Python
 
 
+![image_0.png](README_media/image_0.png)
+
+
 Inspired from [programming\-GPTs](https://github.com/yanndebray/programming-GPTs)
 
 
@@ -70,13 +73,13 @@ edit chap1_LLMs_with_MATLAB_and_Python\chap1_messages_history.mlx
 [toshiakit/MatGPT: MATLAB app to access ChatGPT API from OpenAI](https://github.com/toshiakit/MatGPT)
 
 
-![image_0.png](README_media/image_0.png)
+![image_1.png](README_media/image_1.png)
 
 <a id="H_4c6c"></a>
 
 ## Chap 3 \- the Art of Prompting
 
-![image_1.png](README_media/image_1.png)
+![image_2.png](README_media/image_2.png)
 
 ```matlab
 edit chap3_Art_of_prompting\chap3_1_extract_content.m
@@ -89,7 +92,7 @@ edit chap3_Art_of_prompting\chap3_5_scale_processing.m
 
 ## Chap 4 \- Question Answering
 
-![image_2.png](README_media/image_2.png)
+![image_3.png](README_media/image_3.png)
 
 ```matlab
 edit chap4_Question_answering\chap4_rag.mlx
@@ -99,7 +102,7 @@ edit chap4_Question_answering\chap4_embeddings.mlx
 
 ## Chap 5 \- Agents and Tools
 
-![image_3.png](README_media/image_3.png)
+![image_4.png](README_media/image_4.png)
 
 ```matlab
 edit chap5_Agents\chap5_OpenAI_functions.mlx
