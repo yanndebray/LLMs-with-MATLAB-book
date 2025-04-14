@@ -1,8 +1,8 @@
-%% Chatbot
+%% Chatbot with Streaming
 
 % Initialize the UI figure and set its UserData property to the conversation object
 initialHeight = 420; initialWidth = 610;
-fig = uifigure(Name="MATLAB Chatbot",Icon="bot.png");
+fig = uifigure(Name="Chatbot with Streaming",Icon="bot.png");
 fig.Position = [100 100 initialWidth initialHeight]; 
 fig.UserData = openAIMessages;  % openAIMessages returns the initial conversation structure
 
@@ -12,7 +12,7 @@ g.RowHeight = {'1x', 22, 22, 22, '5x', 22, 22, 5};
 g.ColumnWidth = {150, 100, 200, '1x', 100};
 
 % Create the title label
-ttl = uilabel(g, Text="MATLAB Chatbot 🤖");
+ttl = uilabel(g, Text="Chatbot with Streaming 🤖");
 ttl.FontSize = 24;
 ttl.Layout.Row = 1;
 ttl.Layout.Column = [1, 5];

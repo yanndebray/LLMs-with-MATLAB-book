@@ -1,7 +1,7 @@
 %% Chatbot with User Data
 
 % Initialize the UI figure and set its UserData property to the conversation object
-initialHeight = 420; initialWidth = 605;
+initialHeight = 420; initialWidth = 610;
 fig = uifigure(Name="Chatbot with UserData");
 fig.Position = [100 100 initialWidth initialHeight]; 
 fig.UserData = openAIMessages;  % openAIMessages returns the initial conversation structure

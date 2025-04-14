@@ -1,7 +1,7 @@
 % Chatbot with history
 
 % Create the uifigure with minimal width.
-initialHeight = 420; initialWidth = 605;
+initialHeight = 420; initialWidth = 610;
 fig = uifigure(Name="Chatbot with history");
 fig.Position = [100 100 initialWidth initialHeight]; 
 
@@ -24,12 +24,12 @@ uit.ColumnName = ["Role", "Content"];
 uit.Layout.Row = [2,6];
 uit.Layout.Column = [2,5];
 
-% Dropdown for conversation history
-dd = uidropdown(g);
-list_history(dd);
-dd.ValueChangedFcn = @(src,event) load_chat(dd, uit);
-dd.Layout.Row = 3;
-dd.Layout.Column = 1;
+% Listbox for conversation history
+lb = uilistbox(g);
+list_history(lb);
+lb.ValueChangedFcn = @(src,events) load_chat(lb,uit);
+lb.Layout.Row = [5,7];
+lb.Layout.Column = 1;
 
 % Input field for messages
 ef = uieditfield(g, Placeholder="Enter your message.");
@@ -38,7 +38,7 @@ ef.Layout.Column = [2,4];
 
 % Send button for the chat (run button)
 sendBtn = uibutton(g, Text="Send");
-sendBtn.ButtonPushedFcn = @(src,event) dumb_chat(ef, dd, openAIMessages);
+sendBtn.ButtonPushedFcn = @(src,event) dumb_chat(ef, lb, openAIMessages);
 sendBtn.Layout.Row = 7;
 sendBtn.Layout.Column = 5;
 
@@ -58,8 +58,8 @@ function chat(selection, inputField, outputField)
     end
 end
 
-function load_chat(dropdown, outputField)
-    historyfile = fullfile("chat", dropdown.Value + ".mat");
+function load_chat(listbox, outputField)
+    historyfile = fullfile("chat", listbox.Value + ".mat");
     if isfile(historyfile)
         load(historyfile, "convo");
         roles = cellfun(@(x) string(x.role), convo.Messages');
@@ -87,14 +87,14 @@ function list_history(inputField)
     inputField.Items = items;
 end
 
-function dumb_chat(inputField, dropdown, convo)
+function dumb_chat(inputField, listbox, convo)
     prompt = string(inputField.Value);
     convo = addUserMessage(convo, prompt);
     txt = "Hello world";
     msgStruct = struct("role", "assistant", "content", txt);
     convo = addResponseMessage(convo, msgStruct);
-    save_chat(convo, "convo1");
-    list_history(dropdown);
+    save_chat(convo, "convo0");
+    list_history(listbox);
 end
 
 function save_chat(convo, filename)
