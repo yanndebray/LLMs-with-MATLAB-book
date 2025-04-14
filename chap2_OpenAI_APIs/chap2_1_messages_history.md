@@ -1,5 +1,5 @@
 
-# Chap 1 \- Messages history
+# Chap 2 \- Messages history
 
 ```matlab
 loadenv("../.env");
@@ -10,7 +10,7 @@ chat = openAIChat("You are a MATLAB expert.",ModelName=modelName);
 The message history is structured as follow
 
 
-![image_0.png](chap1_messages_history_media/image_0.png)
+![image_0.png](chap2_1_messages_history_media/image_0.png)
 
 ```matlab
 messages = messageHistory;

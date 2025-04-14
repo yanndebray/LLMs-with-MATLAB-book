@@ -1,4 +1,3 @@
-loadenv("../.env");
 modelName = "gpt-4o-mini";
 chat = openAIChat("You are a MATLAB expert.",ModelName=modelName);
 messages = messageHistory;
