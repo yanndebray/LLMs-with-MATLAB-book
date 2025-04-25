@@ -1,18 +1,18 @@
 function summary = summarizeArticle(content)
     keyPointsPrompt = [
-        "You are an AI assistant that summarizes technical articles. Read the article below and think through " ;
-        "the main points step by step before writing the final summary.";
+        "You are an AI assistant that summarizes technical articles.";
+        "Read the article below and think through the main points step by step " ;
+        "before writing the final summary.";
         "Article:";
         content;
         "First, outline the key points and main ideas of the article.";
-        "Then, write a concise summary incorporating these points.";
-        "Key Points:"];
+        "Then, write a concise summary incorporating these points."];
     keyPointsPrompt = strjoin(keyPointsPrompt, newline);
-    keyPoints = bot(keyPointsPrompt);
+    keyPoints = bot(keyPointsPrompt)
     
     summaryPrompt = [
-        "Using the key points below, write a concise summary of the article.";
-        "Key Points:";
+        "Extract the summary only.";
+        "Key Points + Summary:";
         keyPoints;
         "Summary:"];
     summaryPrompt = strjoin(summaryPrompt, newline);
