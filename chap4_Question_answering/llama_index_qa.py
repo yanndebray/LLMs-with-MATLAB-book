@@ -11,7 +11,7 @@ index.storage_context.persist()
 query_engine = index.as_query_engine()
 response = query_engine.query('what is the potential of AI for Education?')
 print(response)
+
+# Cite the sources
 sources = [s.node.get_text() for s in response.source_nodes]
 print(sources[0][0:11])
-
-
