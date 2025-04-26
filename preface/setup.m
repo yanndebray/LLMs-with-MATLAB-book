@@ -3,12 +3,13 @@
 % LLM with MATLAB
 
 folderName = 'llms-with-matlab';
+repo = "https://github.com/matlab-deep-learning/"+folderName;
 if ~isfolder(folderName)
-    gitclone("https://github.com/matlab-deep-learning/llms-with-matlab");
+    gitclone(repo);
 else
-    disp('The folder already exists.');
+    disp("The folder "+folderName+"/ already exists.");
 end
-addpath(genpath("llms-with-matlab"))
+addpath(genpath(folderName))
 
 % OpenAI API key
 % Save your API key in a file named |.env|
