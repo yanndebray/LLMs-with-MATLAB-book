@@ -6,3 +6,5 @@ llms-with-matlab/
 chatGPT_exports/
 __pycache__/
 transformer-models/
+impromptu/
+storage/
