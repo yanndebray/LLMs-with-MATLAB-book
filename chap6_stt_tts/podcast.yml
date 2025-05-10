@@ -24,7 +24,7 @@ jobs:
       - name: Run MATLAB script
         uses: matlab-actions/run-command@v2
         with:
-          command: disp('Running my task!'); addpath preface\ chap6_stt_tts\; setup; pyenv(Version="/usr/bin/python3"); dailytechtask; podcastgentask;
+          command: disp('Running my task!'); addpath preface chap6_stt_tts; setup; pyenv(Version="/usr/bin/python3"); dailytechtask; podcastgentask;
       # Save the result as artifact
       - name: Archive output data
         uses: actions/upload-artifact@v4
