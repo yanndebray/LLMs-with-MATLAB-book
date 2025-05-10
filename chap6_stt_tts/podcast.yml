@@ -1,0 +1,36 @@
+name: Daily Tech Podcast
+run-name: ${{ github.actor }} is scheduling a MATLAB task
+on: 
+  # schedule:
+  #   - cron: "0 7 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  task:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repo
+        uses: actions/checkout@v4
+      # Sets up MATLAB on a GitHub-hosted runner
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v2
+        with:
+          products: >
+            Text_Analytics_Toolbox
+      - name: Install Python dependencies
+        run: python3 -m pip install openai
+      # You can use "run-command" to execute custom MATLAB scripts, functions, or statements
+      - name: Run MATLAB script
+        uses: matlab-actions/run-command@v2
+        with:
+          command: disp('Running my task!'); setup; pyenv(Version="/usr/bin/python3"); dailytechtask; podcastgentask;
+      # Save the result as artifact
+      - name: Archive output data
+        uses: actions/upload-artifact@v4
+        with:
+          name: podcast
+          path: podcast/tech_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+
+env:
+  OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
