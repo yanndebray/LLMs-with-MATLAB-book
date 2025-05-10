@@ -1,8 +1,8 @@
 name: Daily Tech Podcast
 run-name: ${{ github.actor }} is scheduling a MATLAB task
 on: 
-  # schedule:
-  #   - cron: "0 7 * * *"
+  schedule:
+    - cron: "0 12 * * *"
   workflow_dispatch: {}
 
 jobs:
