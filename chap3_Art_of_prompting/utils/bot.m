@@ -1,6 +1,6 @@
 function [text, response] = bot(prompt, temperature)
     % Set defaults if not provided
-    if nargin < 3, temperature = 0; end
+    if nargin < 2, temperature = 0; end
     
     % Load environment settings (if needed)
     loadenv("../.env");
