@@ -34,3 +34,4 @@ jobs:
 
 env:
   OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
+  MLM_LICENSE_TOKEN: ${{secrets.MLM_LICENSE_TOKEN}}
