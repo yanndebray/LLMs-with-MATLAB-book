@@ -1,7 +1,8 @@
 python-dotenv
 openai
-youtube-transcript-api
-tiktoken
-sentence-transformers
-faiss-cpu
-duckduckgo-search
+# youtube-transcript-api
+# tiktoken
+# sentence-transformers
+# faiss-cpu
+# duckduckgo-search
+# pytube
