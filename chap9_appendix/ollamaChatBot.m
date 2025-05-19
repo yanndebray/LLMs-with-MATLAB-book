@@ -1,5 +1,6 @@
 % Simple Ollama ChatBot calling remote server via ngrok
-ollamaServer = "<your-tunnel>.ngrok-free.app";
+ollamaServer = getenv("OLLAMA_SERVER");
+% ollamaServer = "<your-tunnel>.ngrok-free.app";
 chat = ollamaChat("llama3.2", EndPoint=ollamaServer);
 messages = messageHistory;
 stopWord = "end";
