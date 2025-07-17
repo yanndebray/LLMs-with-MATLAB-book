@@ -3,6 +3,8 @@
 
 # LLMs with MATLAB
 
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=yanndebray/LLMs-with-MATLAB-book&file=README.mlx)
+
 A practical guide to building Generative AI applications
 
 
