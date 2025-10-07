@@ -15,7 +15,7 @@ A practical guide to building Generative AI applications
 ![image_0.png](README_media/image_0.png)
 
 
-Inspired from [programming\-GPTs](https://github.com/yanndebray/programming-GPTs)
+Inspired from [programming\-GPTs](https://github.com/yanndebray/programming-GPTs), and based on the repo [LLMs-with-MATLAB](https://github.com/matlab-deep-learning/llms-with-matlab)
 
 
 This repo has been developed with MATLAB 24b and Python 3.10.
